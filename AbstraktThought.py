@@ -9,7 +9,7 @@ class AbstraktThought():
         self.fcolor = kwargs["fcolor"] if kwargs.get("fcolor") else "#f5f5f5"#foreground color
         self.bcolor = kwargs["bcolor"] if kwargs.get("bcolor") else "#404040"#background color
         self.items = []
-        self.delay = 0
+        self.delay = 500
         self.tipwindow = None
         self.id = None
         self.x = self.y = 0
@@ -24,7 +24,7 @@ class AbstraktThought():
         self.unschedule()
         self.killtip()
 
-    def set_delay(self, delay = 500):
+    def set_delay(self, delay = 1000):#microseconds
         self.delay = delay
 
     def schedule(self):
@@ -88,9 +88,7 @@ def test():
     button1.pack()
     button2.pack()
     a = AbstraktThought(widget = button1, bcolor = '#ffffe0', fcolor = '#000000', text = "This is tooltip text for button1.\nHave fun testing AbstraktThoughts...")
-    a.set_delay()
     b = AbstraktThought(widget = button2, tiptype = "listed")
-    b.set_delay()
     b.additem("1.Line One")
     b.additem("2.Line Two")
     b.additem("3.Line Three")
